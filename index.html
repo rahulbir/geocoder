@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Geocoding</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/geocoder.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <!-- Title/Instructions -->
+          <h1 id="download" class="page-header">Geocoding</h1>
+          <p class="lead">Click <i>"Choose File"</i> below to import any csv file containing a list of addresses.</p>
+          <span class="btn btn-primary btn-sm btn-file">Choose File
+            <input type="file" id="file" multiple=""></input>
+          </span>
+        </div>
+
+        <!-- Legend -->
+        <div class="col-md-12">
+          <h5>
+          <span class="label label-success">Non-Partial AND Rooftop</span>
+          <span class="label label-warning">Non-Partial OR Rooftop</span>
+          <span class="label label-danger">Other Geocode Status</span>
+          <span class="label label-info pull-right hide" id="loading">Loading...</span>
+          </h5>
+        </div>
+
+        <!-- Table: Geocoding Results -->
+        <div class="col-md-12">
+          <table class="table table-condensed" id="addresses">
+            <thead>
+              <tr>
+                <th width="10%">#</th>
+                <th width="45%">Address</th>
+                <th width="15%">Non-Partial Result</th>
+                <th width="15%">Rooftop</th>
+                <th width="15%">Geocode Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load JS files  -->
+    <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+  </body>
+</html>
