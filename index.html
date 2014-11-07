@@ -1,52 +1,69 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Geocoder : Geocodes addresses from a CSV file and only returns those addresses that have a single non-partial result and that have a geocode that is of &quot;ROOFTOP&quot; quality.">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>Geocoding</title>
 
-    <title>Geocoder</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/geocoder.css" rel="stylesheet">
   </head>
 
   <body>
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-12">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/rahulbir/geocoder">View on GitHub</a>
+          <!-- Title/Instructions -->
+          <h1 id="download" class="page-header">Geocoding</h1>
+          <p class="lead">Click <i>"Choose File"</i> below to import any csv file containing a list of addresses.</p>
+          <span class="btn btn-primary btn-sm btn-file">Choose File
+            <input type="file" id="file" multiple=""></input>
+          </span>
+        </div>
 
-          <h1 id="project_title">Geocoder</h1>
-          <h2 id="project_tagline">Geocodes addresses from a CSV file and only returns those addresses that have a single non-partial result and that have a geocode that is of &quot;ROOFTOP&quot; quality.</h2>
+        <!-- Legend -->
+        <div class="col-md-12">
+          <h5>
+          <span class="label label-success">Non-Partial AND Rooftop</span>
+          <span class="label label-warning">Non-Partial OR Rooftop</span>
+          <span class="label label-danger">Other Geocode Status</span>
+          <span class="label label-info pull-right hide" id="loading">Loading...</span>
+          </h5>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/rahulbir/geocoder/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/rahulbir/geocoder/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+        <!-- Table: Geocoding Results -->
+        <div class="col-md-12">
+          <table class="table table-condensed" id="addresses">
+            <thead>
+              <tr>
+                <th width="10%">#</th>
+                <th width="45%">Address</th>
+                <th width="15%">Non-Partial Result</th>
+                <th width="15%">Rooftop</th>
+                <th width="15%">Geocode Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="geocoder" class="anchor" href="#geocoder" aria-hidden="true"><span class="octicon octicon-link"></span></a>geocoder</h1>
-
-<p>Geocodes addresses from a CSV file and only returns those addresses that have a single non-partial result and that have a geocode that is of "ROOFTOP" quality.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Geocoder maintained by <a href="https://github.com/rahulbir">rahulbir</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+    <!-- Load JS files  -->
+    <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/papaparse.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="assets/js/geocoder.js"></script>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    geocoder.init();
+  });
+</script>
